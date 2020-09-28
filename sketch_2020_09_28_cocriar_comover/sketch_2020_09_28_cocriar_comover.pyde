@@ -14,7 +14,7 @@ modo = 0 # variavel global que gerencia os modos
 acionadores = ((20, 10, 140, 40, "mover"),
                (20, 940, 190, 40, "remover"),
                (875, 10, 100, 40, "criar"),
-               (875, 940, 140, 40, "recriar"))
+               (830, 940, 140, 40, "recriar"))
 
 retangulos = [Rect(200, 500, 200, 200),
               Rect(300, 500, 400, 400),
@@ -39,7 +39,7 @@ def draw():
             break
     
     for r in reversed(retangulos):
-        r.display()
+        r.display(mousePressed)
         
     for i,a in enumerate(acionadores):
         x, y, w, h, p = a

@@ -8,18 +8,23 @@ class Rect:
         self.arrastado = False
         self.destaque = False
         
-    def display(self):
-        if self.arrastado:
-            strokeWeight(2)
-            stroke(60)
+    def display(self, mp):
+        colorMode(HSB)
+        area = abs(self.w * self.h)
+        matiz = area * 255/(width*height)
+        stroke(matiz, 255, 255)
+        colorMode(RGB)
         
-        elif self.destaque:
+        if self.arrastado:
+            strokeWeight(5)
+            
+        elif self.destaque and not mp:
             stroke(255)
             strokeWeight(20)
             self.destaque = False
         else:
-            strokeWeight(1)
-            stroke(0,30,250)
+            strokeWeight(2)
+        
         rect (self.x, self.y, self.w, self.h)
     
     def mouse_over(self):
